@@ -1,6 +1,7 @@
 import React from "react";
 import RestaurantInput from "./RestaurantInput";
 import Restaurants from "./Restaurants";
+import {useSelector} from "react-redux";
 
 function RestaurantsContainer() {
 
