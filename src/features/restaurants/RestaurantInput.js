@@ -6,6 +6,16 @@ function RestaurantInput() {
   const [name, setName] = useState("");
   const dispatch = useDispatch;
 
+  function handleInputChange(e){
+    setName(e.target.value);
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    dispatch(restaurantAdded(name));
+    setName("");
+  }
+
   return <div>Restaurant Input</div>;
 }
 
