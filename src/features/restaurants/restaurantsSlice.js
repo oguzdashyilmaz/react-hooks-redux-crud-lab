@@ -10,13 +10,13 @@ const restaurantsSlice = createSlice({
     restaurantAdded(state,action){
       state.entities.push({id: uuid(), name: action.payload})
     },
-    restaurantDeleted(state,action){
+    restaurantRemoved(state,action){
       const index = state.entities.findIndex(restaurant=>restaurant.id === action.payload);
       state.entities.splice(index,1);
     }
   },
 });
 
-export const {restaurantAdded,restaurantDeleted} =  restaurantsSlice.actions;
+export const {restaurantAdded,restaurantRemoved} =  restaurantsSlice.actions;
 
 export default restaurantsSlice.reducer;

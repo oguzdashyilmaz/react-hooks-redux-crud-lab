@@ -1,30 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {useState} from "react";
-import {restaurantAdded} from "./restaurantsSlice";
+import { restaurantAdded } from "./restaurantsSlice";
 
 function RestaurantInput() {
-
   const [name, setName] = useState("");
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
-  function handleInputChange(e){
-    setName(e.target.value);
+  function handleInputChange(event) {
+    setName(event.target.value);
   }
 
-  function handleSubmit(e){
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     dispatch(restaurantAdded(name));
-    setName("");
   }
 
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <label htmlFor="">
-        Name:
-        <input type="text" value={name} name={name} onChange={handleInputChange} />
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleInputChange}
+        />
       </label>
-      <button type="submit">add restaurant</button>
+      <button type="submit">Add Restaurant</button>
     </form>
   );
 }
