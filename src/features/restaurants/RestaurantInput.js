@@ -17,7 +17,11 @@ function RestaurantInput() {
     setName("");
   }
 
-  return <div>Restaurant Input</div>;
+  return (
+    <form action="" onSubmit={handleSubmit}>
+      
+    </form>
+  );
 }
 
 export default RestaurantInput;
